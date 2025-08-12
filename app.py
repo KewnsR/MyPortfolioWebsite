@@ -19,6 +19,8 @@ def projects():
 def contact():
     return render_template("contact.html")
 
-# For Vercel deployment
+# This is required for Vercel
+app = app
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
