@@ -162,7 +162,7 @@
 </head>
 <body class="bg-dark-bg text-white overflow-x-hidden">
     <!-- Floating Code Snippets -->
-    <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="hidden md:block fixed inset-0 pointer-events-none z-0">
         <div class="code-snippet" style="top: 10%; animation-delay: 0s;">def fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2)</div>
         <div class="code-snippet" style="top: 30%; animation-delay: 5s;">from flask import Flask, render_template, jsonify</div>
         <div class="code-snippet" style="top: 50%; animation-delay: 10s;">SELECT * FROM users WHERE active = true ORDER BY created_at DESC</div>
@@ -225,15 +225,15 @@
             <!-- Left Content -->
             <div class="space-y-8">
                 <div class="space-y-4">
-                    <h1 class="text-6xl md:text-7xl font-black">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black">
                         HI, I'M <span class="gradient-text">KEN!</span>
                     </h1>
-                    <h2 class="text-3xl md:text-4xl font-bold">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">
                         CREATIVE <span class="text-neon-green">DEVELOPER</span>
                     </h2>
                 </div>
                 
-                <p class="text-xl text-gray-300 leading-relaxed max-w-lg font-mono">
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-lg font-mono">
                     <span class="typing-effect">I'm a passionate CS student with a mission to build innovative and 
                     scalable digital solutions. With expertise in Python, Flask, and modern web technologies, 
                     I transform complex problems into elegant code.</span>
@@ -260,29 +260,29 @@
             <div class="flex justify-center lg:justify-end">
                 <div class="relative">
                     <!-- Main Profile Card -->
-                    <div class="w-80 h-96 glass-effect rounded-3xl p-8 transform rotate-6 hover:rotate-0 transition-transform duration-500">
-                        <div class="h-full flex flex-col justify-center items-center space-y-6">
+                    <div class="w-72 h-80 md:w-80 md:h-96 glass-effect rounded-3xl p-6 md:p-8 transform rotate-3 md:rotate-6 hover:rotate-0 transition-transform duration-500">
+                        <div class="h-full flex flex-col justify-center items-center space-y-4 md:space-y-6">
                             <!-- Profile Image -->
-                            <div class="w-48 h-48 bg-gradient-to-br from-neon-green to-neon-blue rounded-3xl overflow-hidden p-1">
+                            <div class="w-36 h-36 md:w-48 md:h-48 bg-gradient-to-br from-neon-green to-neon-blue rounded-3xl overflow-hidden p-1">
                                 <img src="{{ url_for('static', filename='img/1v1formal.png') }}" alt="Ken Ramos - Profile Picture" class="w-full h-full object-cover rounded-3xl">
                             </div>
                             
                             <div class="text-center">
-                                <h3 class="text-2xl font-bold mb-2">Ken Ramos</h3>
-                                <p class="text-neon-green font-mono">CS Student & Developer</p>
+                                <h3 class="text-xl md:text-2xl font-bold mb-2">Ken Ramos</h3>
+                                <p class="text-sm md:text-base text-neon-green font-mono">CS Student & Developer</p>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Floating Tech Icons -->
-                    <div class="absolute -top-4 -left-4 w-16 h-16 bg-dark-card rounded-2xl flex items-center justify-center animate-float">
-                        <span class="text-2xl">🐍</span>
+                    <div class="absolute -top-2 -left-2 md:-top-4 md:-left-4 w-12 h-12 md:w-16 md:h-16 bg-dark-card rounded-2xl flex items-center justify-center animate-float">
+                        <span class="text-lg md:text-2xl">🐍</span>
                     </div>
-                    <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-dark-card rounded-2xl flex items-center justify-center animate-float" style="animation-delay: 1s;">
-                        <span class="text-2xl">⚡</span>
+                    <div class="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 w-12 h-12 md:w-16 md:h-16 bg-dark-card rounded-2xl flex items-center justify-center animate-float" style="animation-delay: 1s;">
+                        <span class="text-lg md:text-2xl">⚡</span>
                     </div>
-                    <div class="absolute top-1/2 -right-8 w-12 h-12 bg-dark-card rounded-xl flex items-center justify-center animate-float" style="animation-delay: 2s;">
-                        <span class="text-lg">🔥</span>
+                    <div class="absolute top-1/2 -right-6 md:-right-8 w-10 h-10 md:w-12 md:h-12 bg-dark-card rounded-xl flex items-center justify-center animate-float" style="animation-delay: 2s;">
+                        <span class="text-sm md:text-lg">🔥</span>
                     </div>
                 </div>
             </div>
