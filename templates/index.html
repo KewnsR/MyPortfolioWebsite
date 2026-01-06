@@ -1,364 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ken Ramos - CS Developer</title>
+    <title>Lloyd Kenneth Ramos - Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'neon-green': '#00ff88',
-                        'neon-blue': '#00d4ff',
-                        'neon-purple': '#8b5cf6',
-                        'dark-bg': '#0a0e1a',
-                        'dark-card': '#1a1f2e',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 20s linear infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'gradient-x': 'gradient-x 15s ease infinite',
-                        'code-flow': 'code-flow 20s linear infinite',
-                        'morphing': 'morphing 8s ease-in-out infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(10px) rotate(240deg); }
-        }
-        
-        @keyframes gradient-x {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes code-flow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100vw); }
-        }
-        
-        @keyframes morphing {
-            0%, 100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(-45deg, #00ff88, #00d4ff, #8b5cf6, #ff6b6b);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-x 3s ease infinite;
-        }
-        
-        .morphing-shape {
-            background: linear-gradient(-45deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
-            animation: morphing 8s ease-in-out infinite;
-        }
-        
-        .glass-effect {
-            background: rgba(26, 31, 46, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-        }
-        
-        .neon-glow:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
-        }
-        
-        .code-snippet {
-            position: absolute;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: rgba(0, 255, 136, 0.6);
-            animation: code-flow 20s linear infinite;
-            pointer-events: none;
-        }
-        
-        .hexagon {
-            width: 100px;
-            height: 86.6px;
-            background: linear-gradient(135deg, #00ff88, #00d4ff);
-            margin: 43.3px 0;
-            position: relative;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-        
-        .skill-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        
-        .skill-card:hover {
-            transform: rotateY(10deg) rotateX(10deg) scale(1.05);
-        }
-        
-        .typing-effect::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        
-        .project-card {
-            background: linear-gradient(135deg, rgba(26, 31, 46, 0.9), rgba(10, 14, 26, 0.9));
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            transition: all 0.4s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(0, 255, 136, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
-        }
-        
-        .nav-item {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item::before {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00ff88, #00d4ff);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        .nav-item:hover::before {
-            width: 100%;
-        }
-    </style>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
-<body class="bg-dark-bg text-white overflow-x-hidden">
-    <!-- Floating Code Snippets -->
-    <div class="hidden md:block fixed inset-0 pointer-events-none z-0">
-        <div class="code-snippet" style="top: 10%; animation-delay: 0s;">def fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2)</div>
-        <div class="code-snippet" style="top: 30%; animation-delay: 5s;">from flask import Flask, render_template, jsonify</div>
-        <div class="code-snippet" style="top: 50%; animation-delay: 10s;">SELECT * FROM users WHERE active = true ORDER BY created_at DESC</div>
-        <div class="code-snippet" style="top: 70%; animation-delay: 15s;">const handleClick = () => setIsOpen(!isOpen)</div>
-    </div>
-
+<body>
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-effect">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-neon-green rounded-lg flex items-center justify-center">
-                        <span class="text-dark-bg font-bold text-lg">&lt;/&gt;</span>
-                    </div>
-                    <span class="text-xl font-bold">KEN RAMOS</span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-item">HOME</a>
-                    <a href="#about" class="nav-item">ABOUT</a>
-                    <a href="/projects" class="nav-item">PROJECTS</a>
-                    <a href="/contact" class="nav-item">CONTACT</a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden w-10 h-10 bg-neon-green rounded-lg flex items-center justify-center" id="mobile-menu-btn">
-                    <div class="w-6 h-6 flex flex-col justify-center items-center">
-                        <span class="w-4 h-0.5 bg-dark-bg mb-1 transition-all"></span>
-                        <span class="w-4 h-0.5 bg-dark-bg mb-1 transition-all"></span>
-                        <span class="w-4 h-0.5 bg-dark-bg transition-all"></span>
-                    </div>
-                </button>
+    <nav id="navbar" class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold tracking-tight">LKR.</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex gap-8">
+                <a href="#home" class="nav-link text-sm uppercase tracking-wider">Home</a>
+                <a href="#about" class="nav-link text-sm uppercase tracking-wider">About</a>
+                <a href="#skills" class="nav-link text-sm uppercase tracking-wider">Skills</a>
+                <a href="#projects" class="nav-link text-sm uppercase tracking-wider">Projects</a>
+                <a href="#contact" class="nav-link text-sm uppercase tracking-wider">Contact</a>
             </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-toggle" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </nav>
-
+    
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-dark-bg z-40 transform translate-x-full transition-transform duration-300">
-        <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
-            <a href="#home" class="mobile-nav-link">HOME</a>
-            <a href="#about" class="mobile-nav-link">ABOUT</a>
-            <a href="/projects" class="mobile-nav-link">PROJECTS</a>
-            <a href="/contact" class="mobile-nav-link">CONTACT</a>
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-black z-40 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="#home" class="mobile-link text-2xl uppercase tracking-wider">Home</a>
+            <a href="#about" class="mobile-link text-2xl uppercase tracking-wider">About</a>
+            <a href="#skills" class="mobile-link text-2xl uppercase tracking-wider">Skills</a>
+            <a href="#projects" class="mobile-link text-2xl uppercase tracking-wider">Projects</a>
+            <a href="#contact" class="mobile-link text-2xl uppercase tracking-wider">Contact</a>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center relative overflow-hidden">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0">
-            <div class="absolute top-20 left-20 w-32 h-32 morphing-shape animate-float"></div>
-            <div class="absolute bottom-40 right-20 w-24 h-24 bg-neon-blue/10 rounded-full animate-pulse-slow"></div>
-            <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-neon-purple/10 rotate-45 animate-spin-slow"></div>
-            <div class="absolute bottom-20 left-1/4 hexagon opacity-20 animate-bounce-slow"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <!-- Left Content -->
-            <div class="space-y-8">
-                <div class="space-y-4">
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black">
-                        HI, I'M <span class="gradient-text">KEN!</span>
+    <section id="home" class="flex items-center justify-center px-6 pt-40 pb-20">
+        <div class="max-w-7xl w-full">
+            <div class="flex items-center gap-12 relative">
+                <!-- Text Content -->
+                <div class="reveal flex-1">
+                    <p class="text-xs uppercase tracking-widest mb-3 text-gray-500">Aspiring Developer & Designer</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-none">
+                        LLOYD KENNETH<br/>
+                        <span class="gradient-text">RAMOS</span>
                     </h1>
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">
-                        CREATIVE <span class="text-neon-green">DEVELOPER</span>
-                    </h2>
+                    <p class="text-base md:text-lg text-gray-400 max-w-2xl mb-8">
+                        CS Student crafting elegant digital experiences through clean code and thoughtful design.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-medium text-sm">Get In Touch</a>
+                        <a href="#projects" class="btn-secondary px-6 py-3 rounded-full font-medium text-sm">View Work</a>
+                    </div>
                 </div>
                 
-                <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-lg font-mono">
-                    <span class="typing-effect">I'm a passionate CS student with a mission to build innovative and 
-                    scalable digital solutions. With expertise in Python, Flask, and modern web technologies, 
-                    I transform complex problems into elegant code.</span>
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ url_for('static', filename='KEN-RAMOS-CV.pdf') }}" target="_blank" class="border-2 border-neon-green text-neon-green px-8 py-4 rounded-xl font-semibold hover:bg-neon-green hover:text-dark-bg transition-all flex items-center space-x-2">
-                        <span>Preview CV</span>
-                    </a>
-                    <a href="{{ url_for('static', filename='KEN-RAMOS-CV.pdf') }}" download class="bg-neon-green text-dark-bg px-8 py-4 rounded-xl font-semibold hover:bg-neon-green/90 transition-all neon-glow flex items-center space-x-2">
-                        <span>Download CV</span>
-                        <span>↓</span>
-                    </a>
-                    <button class="border-2 border-neon-blue text-neon-blue px-8 py-4 rounded-xl font-semibold hover:bg-neon-blue hover:text-dark-bg transition-all flex items-center space-x-2">
-                        <div class="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center">
-                            <div class="w-2 h-2 bg-current rounded-full"></div>
-                        </div>
-                        <span>Watch Demo</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Right Content - 3D Profile Card -->
-            <div class="flex justify-center lg:justify-end">
-                <div class="relative">
-                    <!-- Main Profile Card -->
-                    <div class="w-72 h-80 md:w-80 md:h-96 glass-effect rounded-3xl p-6 md:p-8 transform rotate-3 md:rotate-6 hover:rotate-0 transition-transform duration-500">
-                        <div class="h-full flex flex-col justify-center items-center space-y-4 md:space-y-6">
-                            <!-- Profile Image -->
-                            <div class="w-36 h-36 md:w-48 md:h-48 bg-gradient-to-br from-neon-green to-neon-blue rounded-3xl overflow-hidden p-1">
-                                <img src="{{ url_for('static', filename='img/1v1formal.png') }}" alt="Ken Ramos - Profile Picture" class="w-full h-full object-cover rounded-3xl">
-                            </div>
-                            
-                            <div class="text-center">
-                                <h3 class="text-xl md:text-2xl font-bold mb-2">Ken Ramos</h3>
-                                <p class="text-sm md:text-base text-neon-green font-mono">CS Student & Developer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Floating Tech Icons -->
-                    <div class="absolute -top-2 -left-2 md:-top-4 md:-left-4 w-12 h-12 md:w-16 md:h-16 bg-dark-card rounded-2xl flex items-center justify-center animate-float">
-                        <span class="text-lg md:text-2xl">🐍</span>
-                    </div>
-                    <div class="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 w-12 h-12 md:w-16 md:h-16 bg-dark-card rounded-2xl flex items-center justify-center animate-float" style="animation-delay: 1s;">
-                        <span class="text-lg md:text-2xl">⚡</span>
-                    </div>
-                    <div class="absolute top-1/2 -right-6 md:-right-8 w-10 h-10 md:w-12 md:h-12 bg-dark-card rounded-xl flex items-center justify-center animate-float" style="animation-delay: 2s;">
-                        <span class="text-sm md:text-lg">🔥</span>
+                <!-- Profile Image -->
+                <div class="reveal absolute right-32">
+                    <div class="relative w-48 h-48">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl"></div>
+                        <img src="{{ url_for('static', filename='img/1v1formal.png') }}" alt="Lloyd Kenneth Ramos" class="relative w-full h-full object-cover rounded-3xl">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick About Section -->
-    <section id="about" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-black gradient-text mb-6">About Me</h2>
-                <div class="w-24 h-1 bg-neon-green mx-auto"></div>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Education Card -->
-                <div class="skill-card glass-effect rounded-2xl p-8">
-                    <div class="text-4xl mb-6">🎓</div>
-                    <h3 class="text-2xl font-bold mb-4 text-neon-green">Education</h3>
-                    <div class="space-y-3 font-mono text-sm">
-                        <div class="space-y-2">
-                            <div>Taguig City University</div>
-                            <div>Bachelor of Science in Computer Science</div>
-                            <div class="text-neon-blue">2022-2026</div>
-                        </div>
+    <!-- About Section -->
+    <section id="about" class="flex items-center justify-center px-6 py-16">
+        <div class="max-w-7xl w-full">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <div class="space-y-4 text-gray-400 leading-relaxed text-sm">
+                        <p>
+                            I'm a Computer Science student at Taguig City University passionate about building digital solutions that blend functionality with clean, minimalist design. I believe in writing simple, user-focused code that solves real problems.
+                        </p>
+                        <p>
+                            Currently seeking an internship or entry-level position to apply my technical skills, learn modern development practices, and contribute through problem-solving and adaptability.
+                        </p>
+                        <p>
+                            When I'm not coding, I explore new technologies, contribute to open source, and mentor fellow students.
+                        </p>
                     </div>
                 </div>
                 
-                <!-- Experience Card -->
-                <div class="skill-card glass-effect rounded-2xl p-8">
-                    <div class="text-4xl mb-6">💼</div>
-                    <h3 class="text-2xl font-bold mb-4 text-neon-blue">Experience</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-semibold text-neon-green">Software Developer Intern</h4>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-neon-green">Freelance Web Developer</h4>
-                            <p class="text-sm text-gray-400 font-mono">Various Clients • 2025-Present</p>
-                        </div>
+                <div class="reveal grid grid-cols-2 gap-4">
+                    <div class="card p-6 rounded-2xl">
+                        <h3 class="text-3xl font-bold mb-2">2+</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-wider">Years Coding</p>
                     </div>
-                </div>
-                
-                <!-- Interests Card -->
-                <div class="skill-card glass-effect rounded-2xl p-8">
-                    <div class="text-4xl mb-6">🚀</div>
-                    <h3 class="text-2xl font-bold mb-4 text-neon-purple">Interests</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">AI/ML</span>
-                        <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Web Dev</span>
-                        <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Software Dev</span>
-                        <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Open Source</span>
-                        <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">DevOps</span>
+                    <div class="card p-6 rounded-2xl">
+                        <h3 class="text-3xl font-bold mb-2">5+</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-wider">Projects Built</p>
+                    </div>
+                    <div class="card p-6 rounded-2xl">
+                        <h3 class="text-3xl font-bold mb-2">8+</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-wider">Technologies</p>
+                    </div>
+                    <div class="card p-6 rounded-2xl">
+                        <h3 class="text-3xl font-bold mb-2">1.75</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-wider">GPA</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Education Section -->
+    <section id="education" class="flex items-center justify-center px-6 py-16">
+        <div class="max-w-7xl w-full">
+            <div class="reveal mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Education</h2>
+            </div>
+            
+            <div class="card p-8 rounded-2xl reveal">
+                <h3 class="text-xl font-semibold mb-2">Taguig City University</h3>
+                <p class="text-gray-400 mb-2">Bachelor of Science in Computer Science</p>
+                <p class="text-sm text-gray-500">2022 - Expected July 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="flex items-center justify-center px-6 py-16">
+        <div class="max-w-7xl w-full">
+            <div class="reveal mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Skills & Expertise</h2>
+                <p class="text-gray-400 text-base">Technologies I work with</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="card p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold mb-4">Frontend Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">HTML/CSS</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">JavaScript</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">React</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Tailwind CSS</span>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="card p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold mb-4">Backend Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Python</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Django</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Flask</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">SQL</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">PostgreSQL</span>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="card p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold mb-4">Tools & Technologies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Git</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">VS Code</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Figma</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Docker</span>
+                        <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">AI/ML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="flex items-center justify-center px-6 py-16">
+        <div class="max-w-7xl w-full">
+            <div class="reveal mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Selected Projects</h2>
+                <p class="text-gray-400 text-base">Recent work I'm proud of</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: TCU CEAA -->
+                <div class="card rounded-2xl overflow-hidden group reveal">
+                    <div class="aspect-video bg-gradient-to-br from-purple-900/20 to-blue-900/20 flex items-center justify-center project-img">
+                        <span class="text-6xl">🤖</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">AI Scholarship Evaluation System (TCU-CEAA)</h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed text-sm">Built an AI-driven scholarship and grant evaluation system, automating applicant screening with OCR, computer vision, NLP, and document-verification models. Implemented a secure backend evaluation pipeline and user-facing submission workflow, enabling fast, consistent, and transparent scholarship scoring. Deployed on a scalable cloud-ready architecture, significantly reducing manual review time and improving evaluation accuracy.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Python</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Django</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">AI/ML</span>
+                        </div>
+                        <a href="https://github.com/Syanpole/TCU_CEAA" target="_blank" class="text-sm uppercase tracking-wider hover:underline">View Project →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Graduate Survey Responses -->
+                <div class="card rounded-2xl overflow-hidden group reveal">
+                    <div class="aspect-video bg-gradient-to-br from-green-900/20 to-teal-900/20 flex items-center justify-center project-img">
+                        <span class="text-6xl">📊</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Graduate Survey Responses</h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed text-sm">Developed an interactive dashboard that visualizes alumni tracer data using Chart.js, searchable records, and client-side analytics. Built a CSV-driven data workflow with optional PHP/MySQL integration for researchers, enabling editable records and flexible data management. Implemented a modular, responsive UI with filtering, metrics, and error-handled data loading for reliable use in academic program evaluation.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">HTML</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">CSS</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">JavaScript</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">PHP</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">SQL</span>
+                        </div>
+                        <a href="https://github.com/KewnsR/GraduateSurveyResponses" target="_blank" class="text-sm uppercase tracking-wider hover:underline">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="flex items-center justify-center px-6 py-16">
+        <div class="max-w-7xl w-full">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Open for<br/>OJT/Internship</h2>
+                    <p class="text-gray-400 text-base mb-8">
+                        Currently seeking opportunities for On-the-Job Training or Internship to apply my skills in real-world projects and gain hands-on experience.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <p>ramoslloydkenneth1@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Location</p>
+                                <p>Taguig City, Philippines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 pt-8">
+                            <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/lloyd-kenneth-ramos-047a30379/" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-2xl text-white text-sm">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-2xl text-white text-sm">
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="5" class="w-full px-4 py-3 rounded-2xl text-white resize-none text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full px-6 py-3 rounded-full font-medium text-sm">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 px-6 py-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm text-gray-500">© 2026 Lloyd Kenneth Ramos. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('translate-x-full');
-        });
-        
-        // Close mobile menu when clicking nav links
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Active section highlighting
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${section.id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
             });
         });
         
-        // Smooth scrolling for navigation
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Reveal animations
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        reveals.forEach(reveal => {
+            revealObserver.observe(reveal);
+        });
+        
+        // Skill bar animations
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.dataset.width;
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 200);
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+        
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -370,47 +400,6 @@
                     });
                 }
             });
-        });
-        
-        // Typing effect for hero text
-        const typingText = document.querySelector('.typing-effect');
-        if (typingText) {
-            const text = typingText.textContent;
-            typingText.textContent = '';
-            
-            let i = 0;
-            const typeWriter = () => {
-                if (i < text.length) {
-                    typingText.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 30);
-                }
-            };
-            
-            setTimeout(typeWriter, 1000);
-        }
-        
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all cards and sections
-        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
