@@ -137,8 +137,8 @@ nav.scrolled {
 .card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(102, 126, 234, 0.3);
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15),
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.1),
                 0 0 0 1px rgba(102, 126, 234, 0.1);
 }
 
@@ -175,12 +175,12 @@ nav.scrolled {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
 }
 
 .btn-primary:active {
-    transform: translateY(-1px);
+    transform: translateY(0);
 }
 
 /* Scroll to Top Button with enhanced design */
@@ -211,12 +211,12 @@ nav.scrolled {
 }
 
 .scroll-to-top:hover {
-    transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 24px rgba(102, 126, 234, 0.45);
 }
 
 .scroll-to-top:active {
-    transform: translateY(-4px) scale(1);
+    transform: translateY(-2px) scale(1);
 }
 
 /* Mobile adjustments */
@@ -255,8 +255,8 @@ nav.scrolled {
 
 .btn-secondary:hover {
     border-color: rgba(255, 255, 255, 0.8);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
 }
 
 /* Gradient text with animation */
@@ -378,6 +378,21 @@ input:focus, textarea:focus {
         padding-right: 1.25rem;
     }
     
+    /* Contact section mobile separator */
+    #contact .grid > div:first-child {
+        position: relative;
+    }
+    
+    #contact .grid > div:first-child::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        right: 5%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.5), transparent);
+    }
+    
     h1 {
         font-size: 2.5rem !important;
         line-height: 1.1;
@@ -421,7 +436,7 @@ input:focus, textarea:focus {
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-3px);
 }
 
 /* Social icons with hover effect */
@@ -435,8 +450,8 @@ a[href*="facebook"]:hover,
 a[href*="github"]:hover,
 a[href*="linkedin"]:hover {
     background: linear-gradient(135deg, #667eea, #764ba2) !important;
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* Skill tags enhancement */
@@ -445,8 +460,8 @@ span[class*="px-"] {
 }
 
 span[class*="px-"]:hover {
-    background: rgba(102, 126, 234, 0.2) !important;
-    transform: translateY(-2px);
+    background: rgba(102, 126, 234, 0.15) !important;
+    transform: translateY(-1px);
 }
 
 /* Enhanced profile image container */
