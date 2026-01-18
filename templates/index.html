@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lloyd Kenneth Ramos - Developer Portfolio</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/LKR_Logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/LKR_Logo.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
@@ -43,30 +45,22 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="flex items-center justify-center px-6 pt-40 pb-20">
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div class="max-w-7xl w-full">
-            <div class="flex items-center gap-12 relative">
+            <div class="flex items-center gap-8 sm:gap-12 relative">
                 <!-- Text Content -->
-                <div class="reveal flex-1">
-                    <p class="text-xs uppercase tracking-widest mb-3 text-gray-500">Aspiring Developer & Designer</p>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-none">
+                <div class="reveal flex-1 w-full">
+                    <p class="text-xs sm:text-sm uppercase tracking-widest mb-3 text-gray-500">Aspiring Developer & Designer</p>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight sm:leading-none">
                         LLOYD KENNETH<br/>
                         <span class="gradient-text">RAMOS</span>
                     </h1>
-                    <p class="text-base md:text-lg text-gray-400 max-w-2xl mb-8">
+                    <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mb-6 sm:mb-8 leading-relaxed">
                         CS Student crafting elegant digital experiences through clean code and thoughtful design.
                     </p>
-                    <div class="flex flex-wrap gap-3">
-                        <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-medium text-sm">Get In Touch</a>
-                        <a href="#projects" class="btn-secondary px-6 py-3 rounded-full font-medium text-sm">View Work</a>
-                    </div>
-                </div>
-                
-                <!-- Profile Image -->
-                <div class="reveal absolute right-32">
-                    <div class="relative w-48 h-48">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl"></div>
-                        <img src="{{ url_for('static', filename='img/1v1formal.png') }}" alt="Lloyd Kenneth Ramos" class="relative w-full h-full object-cover rounded-3xl">
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                        <a href="#contact" class="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base text-center">Get In Touch</a>
+                        <a href="#projects" class="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base text-center">View Work</a>
                     </div>
                 </div>
             </div>
@@ -74,40 +68,45 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="flex items-center justify-center px-6 py-16">
+    <section id="about" class="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <div class="max-w-7xl w-full">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-                    <div class="space-y-4 text-gray-400 leading-relaxed text-sm">
-                        <p>
-                            I'm a Computer Science student at Taguig City University passionate about building digital solutions that blend functionality with clean, minimalist design. I believe in writing simple, user-focused code that solves real problems.
-                        </p>
-                        <p>
-                            Currently seeking an internship or entry-level position to apply my technical skills, learn modern development practices, and contribute through problem-solving and adaptability.
-                        </p>
-                        <p>
-                            When I'm not coding, I explore new technologies, contribute to open source, and mentor fellow students.
-                        </p>
+            <div class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[350px_1fr] gap-8 sm:gap-10 md:gap-12 items-start">
+                <!-- Profile Image -->
+                <div class="reveal w-full mx-auto md:mx-0 max-w-sm md:max-w-none">
+                    <div class="profile-image-container relative w-full aspect-[3/4] mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-2xl"></div>
+                        <img src="{{ url_for('static', filename='img/1v1formal.png') }}" alt="Lloyd Kenneth Ramos" class="relative w-full h-full object-cover rounded-2xl shadow-2xl">
                     </div>
                 </div>
                 
-                <div class="reveal grid grid-cols-2 gap-4">
-                    <div class="card p-6 rounded-2xl">
-                        <h3 class="text-3xl font-bold mb-2">2+</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-wider">Years Coding</p>
+                <!-- Text Content -->
+                <div class="reveal flex flex-col justify-center">
+                    <div class="inline-block mb-3 sm:mb-4">
+                        <span class="text-xs uppercase tracking-widest text-gray-500 border border-gray-700 px-3 py-1.5 rounded-full">Who I Am</span>
                     </div>
-                    <div class="card p-6 rounded-2xl">
-                        <h3 class="text-3xl font-bold mb-2">5+</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-wider">Projects Built</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">About Me</h2>
+                    <div class="space-y-4 sm:space-y-5 text-gray-400 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            I am a Computer Science student at Taguig City University with a strong interest in building efficient, user-focused digital solutions with clean, minimalist design. I value writing simple, maintainable code that solves real-world problems.
+                        </p>
+                        <p>
+                            I am seeking an internship or entry-level opportunity to apply my technical foundation, learn modern development practices, and contribute through problem-solving and collaboration.
+                        </p>
+                        <p>
+                            Beyond academics, I explore emerging technologies and contribute to open-source projects.
+                        </p>
                     </div>
-                    <div class="card p-6 rounded-2xl">
-                        <h3 class="text-3xl font-bold mb-2">8+</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-wider">Technologies</p>
-                    </div>
-                    <div class="card p-6 rounded-2xl">
-                        <h3 class="text-3xl font-bold mb-2">1.75</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-wider">GPA</p>
+                    
+                    <!-- Quick Info -->
+                    <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div class="border border-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-5 hover:border-gray-700 transition-colors">
+                            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Location</p>
+                            <p class="text-sm font-medium">Taguig City, PH</p>
+                        </div>
+                        <div class="border border-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-5 hover:border-gray-700 transition-colors">
+                            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Status</p>
+                            <p class="text-sm font-medium text-green-400">Available for OJT</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,32 +114,32 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="flex items-center justify-center px-6 py-16">
+    <section id="education" class="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
         <div class="max-w-7xl w-full">
-            <div class="reveal mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">Education</h2>
+            <div class="reveal mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Education</h2>
             </div>
             
-            <div class="card p-8 rounded-2xl reveal">
-                <h3 class="text-xl font-semibold mb-2">Taguig City University</h3>
-                <p class="text-gray-400 mb-2">Bachelor of Science in Computer Science</p>
-                <p class="text-sm text-gray-500">2022 - Expected July 2026</p>
+            <div class="card p-6 sm:p-8 rounded-xl sm:rounded-2xl reveal">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Taguig City University</h3>
+                <p class="text-gray-400 mb-2 text-sm sm:text-base">Bachelor of Science in Computer Science</p>
+                <p class="text-xs sm:text-sm text-gray-500">2022 - Expected July 2026</p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="flex items-center justify-center px-6 py-16">
+    <section id="skills" class="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
         <div class="max-w-7xl w-full">
-            <div class="reveal mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">Skills & Expertise</h2>
-                <p class="text-gray-400 text-base">Technologies I work with</p>
+            <div class="reveal mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">Skills & Expertise</h2>
+                <p class="text-gray-400 text-sm sm:text-base">Technologies I work with</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                 <!-- Frontend -->
-                <div class="card p-6 rounded-2xl reveal">
-                    <h3 class="text-lg font-semibold mb-4">Frontend Development</h3>
+                <div class="card p-5 sm:p-6 rounded-xl sm:rounded-2xl reveal">
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Frontend Development</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">HTML/CSS</span>
                         <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">JavaScript</span>
@@ -150,8 +149,8 @@
                 </div>
                 
                 <!-- Backend -->
-                <div class="card p-6 rounded-2xl reveal">
-                    <h3 class="text-lg font-semibold mb-4">Backend Development</h3>
+                <div class="card p-5 sm:p-6 rounded-xl sm:rounded-2xl reveal">
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Backend Development</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Python</span>
                         <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Django</span>
@@ -162,8 +161,8 @@
                 </div>
                 
                 <!-- Tools -->
-                <div class="card p-6 rounded-2xl reveal">
-                    <h3 class="text-lg font-semibold mb-4">Tools & Technologies</h3>
+                <div class="card p-5 sm:p-6 rounded-xl sm:rounded-2xl reveal">
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Tools & Technologies</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">Git</span>
                         <span class="px-3 py-1.5 bg-white/5 rounded-full text-xs">VS Code</span>
@@ -177,49 +176,69 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="flex items-center justify-center px-6 py-16">
+    <section id="projects" class="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
         <div class="max-w-7xl w-full">
-            <div class="reveal mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">Selected Projects</h2>
-                <p class="text-gray-400 text-base">Recent work I'm proud of</p>
+            <div class="reveal mb-8 sm:mb-10">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">Selected Projects</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">Recent work I'm proud of</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
                 <!-- Project 1: TCU CEAA -->
-                <div class="card rounded-2xl overflow-hidden group reveal">
-                    <div class="aspect-video bg-gradient-to-br from-purple-900/20 to-blue-900/20 flex items-center justify-center project-img">
-                        <span class="text-6xl">🤖</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">AI Scholarship Evaluation System (TCU-CEAA)</h3>
-                        <p class="text-gray-400 mb-4 leading-relaxed text-sm">Built an AI-driven scholarship and grant evaluation system, automating applicant screening with OCR, computer vision, NLP, and document-verification models. Implemented a secure backend evaluation pipeline and user-facing submission workflow, enabling fast, consistent, and transparent scholarship scoring. Deployed on a scalable cloud-ready architecture, significantly reducing manual review time and improving evaluation accuracy.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Python</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Django</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">React</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">AI/ML</span>
+                <div class="card rounded-xl overflow-hidden group reveal project-card">
+                    <a href="https://tcu-ceaa-portal.web.app/" target="_blank" class="block aspect-video bg-gradient-to-br from-purple-900/20 to-blue-900/20 relative overflow-hidden group">
+                        <!-- Add your screenshot here: <img src="{{ url_for('static', filename='img/tcu-ceaa-preview.png') }}" alt="TCU-CEAA Portal" class="w-full h-full object-cover"> -->
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-2 border border-white/30 rounded-lg backdrop-blur-sm">View Live Demo →</span>
                         </div>
-                        <a href="https://github.com/Syanpole/TCU_CEAA" target="_blank" class="text-sm uppercase tracking-wider hover:underline">View Project →</a>
+                    </a>
+                    <div class="p-4 sm:p-5">
+                        <h3 class="text-base sm:text-lg font-semibold mb-2">AI Scholarship Evaluation System (TCU-CEAA)</h3>
+                        <p class="text-gray-400 mb-3 leading-relaxed text-xs sm:text-sm">Built an AI-driven scholarship and grant evaluation system, automating applicant screening with OCR, computer vision, NLP, and document-verification models. Implemented a secure backend evaluation pipeline and user-facing submission workflow, enabling fast, consistent, and transparent scholarship scoring. Deployed on a scalable cloud-ready architecture, significantly reducing manual review time and improving evaluation accuracy.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">Python</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">Django</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">React</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">PostgreSQL</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">AI/ML</span>
+                        </div>
+                        <a href="https://tcu-ceaa-portal.web.app/" target="_blank" class="text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1.5 text-purple-400 hover:text-purple-300 transition-colors">
+                            View Project
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 2: Graduate Survey Responses -->
-                <div class="card rounded-2xl overflow-hidden group reveal">
-                    <div class="aspect-video bg-gradient-to-br from-green-900/20 to-teal-900/20 flex items-center justify-center project-img">
-                        <span class="text-6xl">📊</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Graduate Survey Responses</h3>
-                        <p class="text-gray-400 mb-4 leading-relaxed text-sm">Developed an interactive dashboard that visualizes alumni tracer data using Chart.js, searchable records, and client-side analytics. Built a CSV-driven data workflow with optional PHP/MySQL integration for researchers, enabling editable records and flexible data management. Implemented a modular, responsive UI with filtering, metrics, and error-handled data loading for reliable use in academic program evaluation.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">HTML</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">CSS</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">JavaScript</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">PHP</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">SQL</span>
+                <div class="card rounded-xl overflow-hidden group reveal project-card">
+                    <a href="https://graduate-survey-responses.vercel.app/view.html" target="_blank" class="block aspect-video bg-gradient-to-br from-green-900/20 to-teal-900/20 relative overflow-hidden group">
+                        <!-- Add your screenshot here: <img src="{{ url_for('static', filename='img/survey-preview.png') }}" alt="Graduate Survey Dashboard" class="w-full h-full object-cover"> -->
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-2 border border-white/30 rounded-lg backdrop-blur-sm">View Live Demo →</span>
                         </div>
-                        <a href="https://github.com/KewnsR/GraduateSurveyResponses" target="_blank" class="text-sm uppercase tracking-wider hover:underline">View Project →</a>
+                    </a>
+                    <div class="p-4 sm:p-5">
+                        <h3 class="text-base sm:text-lg font-semibold mb-2">Graduate Survey Responses</h3>
+                        <p class="text-gray-400 mb-3 leading-relaxed text-xs sm:text-sm">Developed an interactive dashboard that visualizes alumni tracer data using Chart.js, searchable records, and client-side analytics. Built a CSV-driven data workflow with optional PHP/MySQL integration for researchers, enabling editable records and flexible data management. Implemented a modular, responsive UI with filtering, metrics, and error-handled data loading for reliable use in academic program evaluation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">HTML</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">CSS</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">JavaScript</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">PHP</span>
+                            <span class="px-2.5 py-1 bg-white/5 rounded-full text-xs">SQL</span>
+                        </div>
+                        <a href="https://graduate-survey-responses.vercel.app/view.html" target="_blank" class="text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1.5 text-green-400 hover:text-green-300 transition-colors">
+                            View Project
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -263,7 +282,12 @@
                         </div>
                         
                         <div class="flex gap-4 pt-8">
-                            <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <a href="https://www.facebook.com/ramos.arthur1" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/KewnsR" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                 </svg>
@@ -273,9 +297,57 @@
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+        <div class="max-w-7xl w-full">
+            <div class="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
+                <div class="reveal">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Open for<br/>OJT/Internship</h2>
+                    <p class="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
+                        Currently seeking opportunities for On-the-Job Training or Internship to apply my skills in real-world projects and gain hands-on experience.
+                    </p>
+                    
+                    <div class="space-y-5 sm:space-y-6">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Email</p>
+                                <p class="text-sm sm:text-base break-all">ramoslloydkenneth1@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Location</p>
+                                <p class="text-sm sm:text-base">Taguig City, Philippines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3 sm:gap-4 pt-6 sm:pt-8">
+                            <a href="https://www.facebook.com/ramos.arthur1" target="_blank" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all" aria-label="Facebook">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/KewnsR" target="_blank" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all" aria-label="GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/lloyd-kenneth-ramos-047a30379/" target="_blank" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-all" aria-label="LinkedIn">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                             </a>
                         </div>
@@ -283,17 +355,21 @@
                 </div>
                 
                 <div class="reveal">
-                    <form class="space-y-4">
+                    <form id="contact-form" class="space-y-4">
                         <div>
-                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-2xl text-white text-sm">
+                            <input type="text" name="name" id="name" placeholder="Your Name" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-white text-sm sm:text-base" required>
                         </div>
                         <div>
-                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-2xl text-white text-sm">
+                            <input type="email" name="email" id="email" placeholder="Your Email" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-white text-sm sm:text-base" required>
                         </div>
                         <div>
-                            <textarea placeholder="Your Message" rows="5" class="w-full px-4 py-3 rounded-2xl text-white resize-none text-sm"></textarea>
+                            <input type="text" name="subject" id="subject" placeholder="Subject" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-white text-sm sm:text-base" required>
                         </div>
-                        <button type="submit" class="btn-primary w-full px-6 py-3 rounded-full font-medium text-sm">Send Message</button>
+                        <div>
+                            <textarea name="message" id="message" placeholder="Your Message" rows="5" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-white resize-none text-sm sm:text-base" required></textarea>
+                        </div>
+                        <div id="form-message" class="hidden text-sm text-center py-2 rounded-full"></div>
+                        <button type="submit" id="submit-btn" class="btn-primary w-full px-6 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base relative">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -301,9 +377,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 px-6 py-8">
+    <footer class="border-t border-white/5 px-4 sm:px-6 py-6 sm:py-8">
         <div class="max-w-7xl mx-auto text-center">
-            <p class="text-sm text-gray-500">© 2026 Lloyd Kenneth Ramos. All rights reserved.</p>
+            <p class="text-xs sm:text-sm text-gray-500">© 2026 Lloyd Kenneth Ramos. All rights reserved.</p>
         </div>
     </footer>
 
@@ -402,5 +478,14 @@
             });
         });
     </script>
+    <script src="{{ url_for('static', filename='js/scroll-animations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/contact-form.js') }}"></script>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 </body>
 </html>

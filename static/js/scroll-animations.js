@@ -1,6 +1,30 @@
 // Smooth scroll behavior
 document.documentElement.style.scrollBehavior = 'smooth';
 
+// Scroll to Top Button
+function initScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    
+    if (scrollBtn) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top on click
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
 // Scroll Progress Bar
 function createScrollProgress() {
     const progressBar = document.createElement('div');
@@ -256,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTiltEffect();
     initSmoothScroll();
     initTextReveal();
+    initScrollToTop();
 });
 
 // Add resize listener for responsive animations

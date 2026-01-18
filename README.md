@@ -1,34 +1,34 @@
-# Ken Ramos - Portfolio Website 🚀
+# Lloyd Kenneth Ramos - Portfolio Website 🚀
 
-A modern, responsive portfolio website built with Flask and Tailwind CSS, featuring stunning animations and a cyberpunk-inspired design aesthetic.
+A modern, minimalist single-page portfolio website built with Flask and Tailwind CSS, featuring elegant design, smooth animations, and clean typography.
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![Flask](https://img.shields.io/badge/Flask-3.1.0-blue) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.11-38B2AC) ![Python](https://img.shields.io/badge/Python-3.x-yellow)
+![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![Flask](https://img.shields.io/badge/Flask-3.1.0-blue) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Latest-38B2AC) ![Python](https://img.shields.io/badge/Python-3.x-yellow)
 
 ## ✨ Features
 
-- **Modern Design**: Cyberpunk-inspired UI with neon accents and glass morphism effects
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **Smooth Animations**: Custom CSS animations including floating elements, morphing shapes, and gradient effects
-- **Interactive Elements**: Hover effects, smooth scrolling, and dynamic navigation
+- **Minimalist Design**: Clean, elegant UI with purple gradient accents
+- **Single-Page Architecture**: Smooth scrolling between sections with anchor navigation
+- **Responsive Layout**: Fully responsive design that works seamlessly on all devices
+- **Smooth Animations**: Custom reveal animations using Intersection Observer API
+- **Interactive Elements**: Hover effects, smooth transitions, and dynamic navigation
 - **Performance Optimized**: Fast loading with efficient code structure
-- **SEO Friendly**: Proper meta tags and semantic HTML structure
+- **Professional Presentation**: Perfect for OJT/Internship applications
 
 ## 🛠️ Tech Stack
 
 ### Backend
 - **Flask 3.1.0** - Python web framework
-- **Python** - Server-side programming
+- **Python 3.x** - Server-side programming
 
 ### Frontend
-- **HTML5** - Markup structure
-- **Tailwind CSS 4.1.11** - Utility-first CSS framework
-- **Vanilla JavaScript** - Interactive functionality
-- **Custom CSS** - Advanced animations and effects
+- **HTML5** - Semantic markup structure
+- **Tailwind CSS (CDN)** - Utility-first CSS framework
+- **Custom CSS** - Minimalist card design, gradient effects, reveal animations
+- **Vanilla JavaScript** - Intersection Observer API, smooth scrolling, mobile menu
 
-### Fonts & Icons
-- **JetBrains Mono** - Monospace font for code snippets
-- **Inter** - Modern sans-serif font
-- **Emoji Icons** - For visual elements and tech stack representation
+### Fonts
+- **Space Grotesk** - Headings and display text
+- **Inter** - Body text and paragraphs
 
 ## 📁 Project Structure
 
@@ -37,24 +37,23 @@ MyPortfolioWebsite/
 │
 ├── app.py                 # Flask application main file
 ├── requirements.txt       # Python dependencies
-├── package.json          # Node.js dependencies (Tailwind CSS)
+├── vercel.json           # Vercel deployment configuration
+├── package.json          # Node.js dependencies
 ├── tailwind.config.js    # Tailwind configuration
+│
+├── api/
+│   └── index.py          # Vercel API endpoint
 │
 ├── static/               # Static assets
 │   ├── css/
-│   │   ├── output.css    # Compiled Tailwind CSS
-│   │   └── tailwind.css  # Tailwind source file
+│   │   └── style.css     # Custom styles (gradient text, cards, animations)
 │   ├── img/
-│   │   └── profile.jpg.placeholder
+│   │   └── 1v1formal.png # Profile image
 │   └── js/
-│       └── particles.min.js
+│       └── scroll-animations.js
 │
 └── templates/            # HTML templates
-    ├── base.html         # Base template
-    ├── index.html        # Homepage
-    ├── about.html        # About page
-    ├── projects.html     # Projects showcase
-    └── contact.html      # Contact page
+    └── index.html        # Single-page portfolio
 ```
 
 ## 🚀 Quick Start
@@ -62,7 +61,6 @@ MyPortfolioWebsite/
 ### Prerequisites
 
 - Python 3.7 or higher
-- Node.js (for Tailwind CSS)
 - Git
 
 ### Installation
@@ -86,74 +84,66 @@ MyPortfolioWebsite/
    pip install -r requirements.txt
    ```
 
-4. **Install Node.js dependencies**
-   ```bash
-   npm install
-   ```
-
-5. **Initialize Tailwind CSS (if needed)**
-   ```bash
-   npx tailwindcss init
-   ```
-
-6. **Run the application**
+4. **Run the application**
    ```bash
    python app.py
    ```
 
-7. **Open your browser**
+5. **Open your browser**
    Navigate to `http://localhost:5000` to view the website
 
-## 🎨 Customization
+## 🎨 Portfolio Sections
 
-### Updating Personal Information
+### Home
+- Professional profile image
+- Name and title
+- Brief introduction
+- Call-to-action buttons
 
-1. **Homepage Content**: Edit `templates/index.html` to update:
-   - Name and title
-   - Profile description
-   - Skills and interests
-   - Social links
+### About
+- Personal biography (3 paragraphs)
+- Statistics cards (Years Coding, Projects Built, Technologies, GPA)
 
-2. **About Page**: Modify `templates/about.html` for:
-   - Detailed biography
-   - Education background
-   - Work experience
+### Education
+- Taguig City University
+- Bachelor of Science in Computer Science
+- 2022 - Expected July 2026
 
-3. **Projects**: Update `templates/projects.html` to showcase:
-   - Portfolio projects
-   - Technical achievements
-   - GitHub repositories
+### Skills & Expertise
+- **Frontend Development**: HTML/CSS, JavaScript, React, Tailwind CSS
+- **Backend Development**: Python, Django, Flask, SQL, PostgreSQL
+- **Tools & Technologies**: Git, VS Code, Figma, Docker, AI/ML
 
-4. **Contact Info**: Edit `templates/contact.html` for:
-   - Contact form
-   - Social media links
-   - Professional information
+### Projects
+- **AI Scholarship Evaluation System (TCU-CEAA)**: AI-driven scholarship evaluation with OCR, NLP, and document verification
+- **Graduate Survey Responses**: Interactive dashboard for alumni tracer data visualization
 
-### Styling Customization
-
-- **Colors**: Modify the color scheme in the Tailwind config section of `index.html`
-- **Animations**: Adjust CSS animations in the `<style>` section
-- **Layout**: Update the grid system and spacing using Tailwind classes
+### Contact
+- OJT/Internship opportunity section
+- Email: ramoslloydkenneth1@gmail.com
+- Location: Taguig City, Philippines
+- Social links: GitHub, LinkedIn
+- Contact form
 
 ## 🌟 Key Features Explained
 
 ### Animation System
-- **Float Animation**: Smooth floating elements with rotation
-- **Gradient Effects**: Dynamic gradient text and backgrounds
-- **Morphing Shapes**: CSS-based shape morphing animations
-- **Typing Effect**: Simulated typing animation for text
+- **Reveal Animations**: Intersection Observer triggers fade-in effects on scroll
+- **Gradient Text**: Purple gradient accent on name
+- **Card Hover Effects**: Smooth transitions and subtle elevation
+- **Smooth Scrolling**: Native CSS smooth scrolling for anchor navigation
 
 ### Interactive Elements
-- **Mobile Navigation**: Responsive hamburger menu
-- **Smooth Scrolling**: Seamless navigation between sections
-- **Hover Effects**: 3D transforms and glow effects
-- **Intersection Observer**: Scroll-triggered animations
+- **Mobile Navigation**: Responsive hamburger menu with overlay
+- **Active Section Highlighting**: Navigation links highlight based on scroll position
+- **Smooth Transitions**: All interactive elements have fluid animations
 
 ### Design Principles
-- **Glass Morphism**: Translucent cards with backdrop blur
-- **Neon Aesthetics**: Cyberpunk-inspired color palette
-- **Typography**: Careful font pairing for readability
-- **Responsive Design**: Mobile-first approach
+- **Minimalism**: Clean black background (#0a0a0a) with white text
+- **Typography Hierarchy**: Clear heading sizes (6xl, 4xl, 3xl hierarchy)
+- **Consistent Spacing**: Reduced spacing between sections (py-16, py-12)
+- **Subtle Accents**: Purple gradient (#667eea to #764ba2) for emphasis
+- **Rounded Corners**: Modern rounded-2xl and rounded-3xl borders
 
 ## 📱 Browser Support
 
@@ -163,46 +153,53 @@ MyPortfolioWebsite/
 - ✅ Edge (Latest)
 - ✅ Mobile browsers
 
-## 🔧 Development
+## 🔧 Customization
 
-### Adding New Pages
+### Updating Content
 
-1. Create a new HTML template in `templates/`
-2. Add a new route in `app.py`:
-   ```python
-   @app.route("/newpage")
-   def newpage():
-       return render_template("newpage.html")
-   ```
-3. Update navigation in all templates
+1. **Personal Information**: Edit `templates/index.html`
+   - Update name, title, and description in Hero section
+   - Modify About section biography
+   - Update statistics cards with accurate numbers
 
-### CSS Compilation
+2. **Projects**: Modify project cards in Projects section
+   - Change project titles and descriptions
+   - Update GitHub repository links
+   - Swap technology tags
 
-If you modify Tailwind styles:
-```bash
-npx tailwindcss -i ./static/css/tailwind.css -o ./static/css/output.css --watch
-```
+3. **Skills**: Edit Skills section
+   - Add/remove technology tags
+   - Update skill categories
+
+4. **Contact Info**: Update Contact section
+   - Change email address
+   - Update location
+   - Modify social media links
+
+### Styling Customization
+
+- **Colors**: Edit gradient colors in `static/css/style.css`
+- **Fonts**: Change font families in `index.html` Google Fonts import
+- **Spacing**: Adjust padding/margin using Tailwind utility classes
+- **Image**: Replace `static/img/1v1formal.png` with your profile photo
 
 ## 🚀 Deployment
+
+### Vercel (Recommended)
+The project includes `vercel.json` configuration:
+```bash
+vercel --prod
+```
 
 ### Local Development
 ```bash
 python app.py
 ```
 
-### Production Deployment Options
-
-1. **Heroku**
-   - Add `Procfile`: `web: python app.py`
-   - Deploy via Git
-
-2. **Vercel**
-   - Install Vercel CLI
-   - Run `vercel --prod`
-
-3. **Traditional Hosting**
-   - Use WSGI server like Gunicorn
-   - Configure web server (Nginx/Apache)
+### Traditional Hosting
+1. Use WSGI server like Gunicorn
+2. Configure web server (Nginx/Apache)
+3. Set up SSL certificate
 
 ## 📄 License
 
@@ -218,20 +215,24 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact
 
-- **Portfolio**: [Your Website URL]
-- **Email**: [your.email@example.com]
-- **LinkedIn**: [Your LinkedIn Profile]
+- **Email**: ramoslloydkenneth1@gmail.com
+- **LinkedIn**: [Lloyd Kenneth Ramos](https://www.linkedin.com/in/lloyd-kenneth-ramos-047a30379/)
 - **GitHub**: [@KewnsR](https://github.com/KewnsR)
+- **Location**: Taguig City, Philippines
+
+## 🎓 About
+
+Computer Science student at Taguig City University passionate about building digital solutions that blend functionality with clean, minimalist design. Currently seeking internship or OJT opportunities to apply technical skills and contribute through problem-solving and adaptability.
 
 ## 🙏 Acknowledgments
 
 - Flask documentation and community
 - Tailwind CSS for the utility-first framework
-- Google Fonts for typography
-- Inspiration from modern web design trends
+- Google Fonts (Space Grotesk & Inter)
+- Intersection Observer API for scroll animations
 
 ---
 
-**Built with ❤️ by Ken Ramos**
+**Built with ❤️ by Lloyd Kenneth Ramos**
 
-*Last updated: August 2025*
+*Last updated: January 2026*
