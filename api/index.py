@@ -23,9 +23,28 @@ mail = Mail(app)
 def home():
     return render_template("index.html")
 
+@app.route("/test-config", methods=['GET'])
+def test_config():
+    """Debug endpoint to check if environment variables are set"""
+    config_status = {
+        'MAIL_SERVER': 'SET' if os.getenv('MAIL_SERVER') else 'MISSING',
+        'MAIL_PORT': 'SET' if os.getenv('MAIL_PORT') else 'MISSING',
+        'MAIL_USERNAME': 'SET' if os.getenv('MAIL_USERNAME') else 'MISSING',
+        'MAIL_PASSWORD': 'SET' if os.getenv('MAIL_PASSWORD') else 'MISSING',
+        'RECIPIENT_EMAIL': 'SET' if os.getenv('RECIPIENT_EMAIL') else 'MISSING'
+    }
+    return jsonify(config_status), 200
+
 @app.route("/send-email", methods=['POST'])
 def send_email():
     try:
+        # Check if email is configured
+        if not app.config['MAIL_USERNAME'] or not app.config['MAIL_PASSWORD']:
+            return jsonify({
+                'success': False, 
+                'message': 'Email service is not configured. Please contact the administrator.'
+            }), 503
+        
         data = request.get_json()
         
         # Get form data
@@ -63,8 +82,25 @@ Message:
         return jsonify({'success': True, 'message': 'Message sent successfully!'}), 200
         
     except Exception as e:
-        print(f"Error sending email: {str(e)}")
-        return jsonify({'success': False, 'message': 'Failed to send message. Please try again.'}), 500
+        error_message = str(e)
+        print(f"Error sending email: {error_message}")
+        
+        # Provide more specific error messages
+        if 'authentication' in error_message.lower():
+            return jsonify({
+                'success': False, 
+                'message': 'Email authentication failed. Please try again later.'
+            }), 500
+        elif 'timeout' in error_message.lower():
+            return jsonify({
+                'success': False, 
+                'message': 'Request timed out. Please try again.'
+            }), 500
+        else:
+            return jsonify({
+                'success': False, 
+                'message': 'Failed to send message. Please try again.'
+            }), 500
 
 # For Vercel
 if __name__ == "__main__":
